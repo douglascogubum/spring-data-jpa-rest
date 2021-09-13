@@ -2,6 +2,7 @@ package com.genekz.jpa.repository;
 
 import com.genekz.jpa.model.Employee;
 import com.genekz.jpa.model.EmployeeProjection;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
+public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long>, JpaSpecificationExecutor<Employee> {
 
     //derived query
     List<Employee> findByName(final String name);
