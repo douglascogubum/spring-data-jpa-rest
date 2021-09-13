@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 @RestControllerAdvice
-public class RoleControllerAdvice {
+public class EmployeeControllerAdvice {
 
-    @ExceptionHandler(value = {RoleException.class})
+    @ExceptionHandler(value = {EmployeeException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ExceptionMessage resourceNotFoundException(RoleException exception) {
+    public ExceptionMessage resourceNotFoundException(EmployeeException exception) {
         return ExceptionMessage.builder()
             .timestamp(LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS).toString())
             .message(exception.getMessage())
