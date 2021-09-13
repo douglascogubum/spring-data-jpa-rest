@@ -1,6 +1,7 @@
 package com.genekz.jpa.controller;
 
 import com.genekz.jpa.model.Employee;
+import com.genekz.jpa.model.EmployeeProjection;
 import com.genekz.jpa.service.ReportsServices;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -30,5 +31,10 @@ public class ReportController {
     @GetMapping("/hiring-date")
     public ResponseEntity<List<Employee>> getEmployeesWithHiringDate(@RequestParam final LocalDate hiringDate) {
         return ResponseEntity.ok(reportsServices.getEmployeesWithHiringDate(hiringDate));
+    }
+
+    @GetMapping("/projection")
+    public ResponseEntity<List<EmployeeProjection>> getEmployeesWithHiringDate() {
+        return ResponseEntity.ok(reportsServices.getEmployeesProjection());
     }
 }
